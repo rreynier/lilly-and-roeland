@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', array('uses' => 'PhotosController@index'));
 
 Route::resource('photos', 'PhotosController');

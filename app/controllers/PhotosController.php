@@ -9,7 +9,7 @@ class PhotosController extends BaseController {
 	 */
 	public function index()
 	{
-        return View::make('photos.index');
+    return View::make('photos.index', array('photos' => Photo::all()));
 	}
 
 	/**
