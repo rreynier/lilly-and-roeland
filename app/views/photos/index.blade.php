@@ -7,7 +7,10 @@
   @if (count($photos) > 0)
     <ul>
       @foreach ($photos as $photo)
-        <li>{{ $photo->title }}</li>
+        <li>
+          {{ $photo->title }}
+          <img src="{{ asset($photo->file_name) }}" />
+        </li>
       @endforeach
     </ul>
   @else
