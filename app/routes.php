@@ -11,6 +11,22 @@
 |
 */
 
-Route::get('/', array('uses' => 'PhotosController@index'));
+Route::get('login', array(
+  'uses' => 'SessionController@create',
+  'as' => 'session.create'
+));
+Route::post('login', array(
+  'uses' => 'SessionController@store',
+  'as' => 'session.store'
+));
+Route::get('logout', array(
+  'uses' => 'SessionController@destroy',
+  'as' => 'session.destroy'
+));
 
-Route::resource('photos', 'PhotosController');
+Route::group(array('before' => 'auth'), function() {
+
+  Route::get('/', array('uses' => 'PhotosController@index'));
+  Route::resource('photos', 'PhotosController');
+
+});

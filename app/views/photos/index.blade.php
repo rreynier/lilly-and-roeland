@@ -1,6 +1,9 @@
 @extends('layouts.front')
 
 @section('content')
+
+  {{ link_to_route('photos.create', 'add photo') }}
+
   @if (count($photos) > 0)
     <ul>
       @foreach ($photos as $photo)
